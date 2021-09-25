@@ -4,8 +4,8 @@ import moment from 'moment';
 import {Bar} from 'react-chartjs-2';
 
 function App() {
-  const [data, setData]:any = useState();
-  const [chartData, setChartData]:any = useState();
+  const [data, setData] = useState();
+  const [chartData, setChartData] = useState();
   const token = process.env.REACT_APP_API_KEY
   
   useEffect(() => {
