@@ -1,14 +1,12 @@
-const express = require('express');
-const app = express();
-app.listen(3001, () => console.log('listening at 3001'));
-
-app.get('/events', async (req,res) => {
-    const api_url = `https://opendata.hopefully.works/api/`;
-    const responese = await fetch(api_url);
-    const json = responese.json();
-    console.log(json)
-})
-
-app.get('/', (req, res) => {
-    res.send('Hi There')
-});
+require('dotenv').config();
+const axios = require('axios');
+const token = process.env.REACT_APP_API_KEY;
+axios.get("https://opendata.hopefully.works/api/events", {
+          headers: { Authorization: `Bearer ${token}` },
+        }).then(
+            response => {
+                console.log(response);
+            }
+        ).catch(error => {
+            console.log(error);
+        });
